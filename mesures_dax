@@ -1,0 +1,66 @@
+MESURES DAX
+
+Chiffre_d_Affaires = SUM(Orders[Sales])
+
+Chiffre_d_Affaires cumule annuel = TOTALYTD([Chiffre_d_Affaires], Dates[Date])
+
+Chiffre_d_Affaires_N-1 = CALCULATE([Chiffre_d_Affaires], SAMEPERIODLASTYEAR(Dates[Date]))
+// Ne fonctionne que si la table Dates est marquée comme table de dates
+
+Commandes retournées = DISTINCTCOUNT(Returns[Order ID])
+
+Delai max de livraison = MAX(Orders[Delai de livraison])
+
+Delai moyen de livraison = AVERAGE(Orders[Delai de livraison])
+
+Evolution CA = DIVIDE([Chiffre_d_Affaires] - [Chiffre_d_Affaires_N-1], [Chiffre_d_Affaires_N-1])
+
+Marge = SUM(Orders[Profit])
+
+Marge fortes remises = 
+CALCULATE([Marge], Orders[Discount Band] = "> 30%")
+// Isole le segment de réduction suspecté d'être destructeur de valeur car pas important
+
+Marge N-1 = CALCULATE([Marge], SAMEPERIODLASTYEAR(Dates[Date]))
+
+Marge perdue = 
+SUMX(
+    FILTER(
+        VALUES(Orders[Sub-Category]),
+        [Marge] < 0    ),
+    [Marge]
+) 
+ou
+Marge perdue = 
+CALCULATE([Marge], FILTER(Orders, Orders[Profit] < 0))
+// Somme des seules lignes en perte, pour chiffrer le manque à gagner
+
+Nbre de commandes = DISTINCTCOUNT(Orders[Order ID])
+
+Nbre de retours = DISTINCTCOUNT(Returns[Order ID])
+
+Nbre unites vendues = SUM(Orders[Quantity])
+
+Panier moyen = DIVIDE([Chiffre_d_Affaires], [Nbre de commandes])
+
+Part CA fortes remises = 
+DIVIDE(
+    CALCULATE([Chiffre_d_Affaires], Orders[Discount Band] = "> 30%"),
+    CALCULATE([Chiffre_d_Affaires], ALL(Orders[Discount Band]))
+)
+
+Pourcentage de retours = DIVIDE([Nbre de retours], [Nbre de commandes])
+
+Remise moyenne = AVERAGE(Orders[Discount])
+
+Sous-catégories déficitaires = 
+COUNTROWS(
+    FILTER(
+        VALUES(Orders[Sub-Category]),
+        [Marge] < 0
+    )
+)
+
+Taux de marge = DIVIDE([Marge], [Chiffre_d_Affaires])
+
+Taux de retour = DIVIDE([Commandes retournées], [Nbre de commandes])
