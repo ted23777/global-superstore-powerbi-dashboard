@@ -26,8 +26,9 @@ Jeu Global Superstore, disponible publiquement sur Kaggle. Trois tables :
 - Returns	1 079	Commandes retournées
 - People	24	Responsables commerciaux par région
 
+Période couverte : janvier 2012 à décembre 2015
 
-Période couverte : janvier 2012 à décembre 2015, quatre années complètes.
+![alt text](<resultats/Schéma de la modélisation de données.png>)
 
 # Stack
 
@@ -39,7 +40,6 @@ Power BI Desktop · Power Query (M) · DAX
 
 2. Modélisation Modèle en étoile simplifié autour de la table de faits Orders, avec une table de dates dédiée créée en DAX (CALENDAR), marquée comme table de dates et reliée à Order Date. Relations un-à-plusieurs unidirectionnelles, sans filtre croisé bidirectionnel. Les mesures sont regroupées dans une table dédiée, et les colonnes numériques brutes sont masquées dans la vue rapport pour interdire toute agrégation implicite.
 
-![alt text](<resultats/Schéma de la modélisation de données.png>)
 
 3. Mesures DAX Toutes les agrégations passent par des mesures explicites. Le détail commenté figure dans le fichier mesures_dax
 
