@@ -1,4 +1,4 @@
-# global-superstore-powerbi-dashboard
+# Global-superstore-powerbi-dashboard
 
 Analyse de la performance commerciale d'un distributeur international sur la période 2012-2015 : croissance, rentabilité, impact des remises et qualité de service logistique.
 
@@ -16,7 +16,7 @@ Résultats
 
 Ce projet reconstitue la démarche d'un analyste BI recevant un extrait de données de ventes brut : modélisation, création des indicateurs, puis construction d'un rapport destiné à une direction commerciale.
 
-L'objectif n'est pas la complexité technique du modèle mais la lisibilité du résultat — un décideur doit pouvoir lire la page de synthèse en dix secondes et identifier les leviers d'action sur les pages suivantes.
+L'objectif n'est pas la complexité technique du modèle mais la lisibilité du résultat - un décideur doit pouvoir lire la page de synthèse en dix secondes et identifier les leviers d'action sur les pages suivantes.
 
  # Données
 
@@ -35,13 +35,13 @@ Power BI Desktop · Power Query (M) · DAX
 
 # Démarche
 
-1. Préparation dans Power Query Typage explicite des colonnes, suppression des champs inutilisés (Row ID, Postal Code), dédoublonnage de la table Returns sur Order ID. Création de trois colonnes calculées : le délai de livraison (Ship Date − Order Date), une tranche de remise en cinq paliers, et une colonne d'index garantissant l'ordre d'affichage de ces paliers.
+1. Préparation dans Power Query Typage explicite des colonnes, suppression des champs inutilisés (Row ID, Postal Code), dédoublonnage de la table Returns sur Order ID. Création de trois colonnes calculées : le délai de livraison (Ship Date - Order Date), une tranche de remise en cinq paliers, et une colonne d'index garantissant l'ordre d'affichage de ces paliers.
 
 2. Modélisation Modèle en étoile simplifié autour de la table de faits Orders, avec une table de dates dédiée créée en DAX (CALENDAR), marquée comme table de dates et reliée à Order Date. Relations un-à-plusieurs unidirectionnelles, sans filtre croisé bidirectionnel. Les mesures sont regroupées dans une table dédiée, et les colonnes numériques brutes sont masquées dans la vue rapport pour interdire toute agrégation implicite.
 
-![alt text](<Schéma de la modélisation de données.png>)
+![alt text](<resultats/Schéma de la modélisation de données.png>)
 
-3. Mesures DAX Toutes les agrégations passent par des mesures explicites. Le détail commenté figure dans documentation/mesures_dax.md.
+3. Mesures DAX Toutes les agrégations passent par des mesures explicites. Le détail commenté figure dans le fichier mesures_dax
 
 Une difficulté méritait attention : la mesure de marge perdue. Une première version filtrait la table de faits ligne à ligne, ce qui additionnait toutes les ventes individuellement déficitaires, y compris celles de sous-catégories globalement rentables, soit un résultat quinze fois trop élevé. La version retenue itère sur les valeurs distinctes de Sub-Category et ne retient que celles dont la marge agrégée est négative.
 
@@ -51,13 +51,13 @@ Une difficulté méritait attention : la mesure de marge perdue. Une première v
 ## LES DIFFERENTES PAGES DU DASHBOARD
 
 # Vue page synthèse
-![alt text](image-2.png)
+![alt text](<resultats/image-2.png>)
 
 # Vue page remises
-![alt text](image-3.png)
+![alt text](<resultats/image-3.png>)
 
 # Vue page produits
-![alt text](image-4.png)
+![alt text](<resultats/image-4.png>)
 
 # Vue page logistique
-![alt text](image-5.png)
+![alt text](<resultats/image-5.png>)
