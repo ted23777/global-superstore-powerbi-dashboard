@@ -2,7 +2,10 @@
 
 Analyse de la performance commerciale d'un distributeur international sur la période 2012-2015 : croissance, rentabilité, impact des remises et qualité de service logistique.
 
-Résultats
+![alt text](<src/résultats pages.gif>)
+
+# Résultats de l'analyse
+
 1. La croissance vient du volume, pas de la valeur. Le chiffre d'affaires progresse de 90 % entre 2012 et 2015 (2,26 M$ → 4,30 M$), porté par un nombre de commandes en hausse de 96 %. Le panier moyen recule de 3 % sur la même période (500 $ → 485 $).
 
 2. Les remises au-delà de 20 % font perdre 815 K$ de marge. La marge bascule en négatif dès la tranche 21-30 %. Les ventes remisées au-delà de 20 % représentent 15 % du chiffre d'affaires mais coûtent 814 682 $ de marge : sans elles, la marge totale de la période serait supérieure de 55 %. Au-delà de 30 % de remise, chaque dollar vendu coûte 51 cents.
@@ -10,7 +13,6 @@ Résultats
 3. La seule sous-catégorie déficitaire est rentable… quand elle n'est pas remisée. Tables perd 64 083 $ sur 757 042 $ de chiffre d'affaires. Vendue sans remise, elle dégage pourtant 23,09 % de marge, au-dessus de la moyenne du catalogue. Mais 54 % de ses commandes sont remisées à plus de 20 %, contre 26 % tous produits confondus. Son déficit relève de la politique commerciale, pas du produit.
 
 4. Le process d'expédition respecte les priorités annoncées. 1,8 jour de délai moyen pour les commandes critiques contre 6,5 pour les commandes en priorité basse, soit un rapport de 1 à 3,6. Aucune commande critique ou haute n'emprunte l'expédition standard.
-
 
 # Contexte
 
